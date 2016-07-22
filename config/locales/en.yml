@@ -18,6 +18,20 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  app_name: "E-lerning system"
+  home_msg: "Welcome you!"
+  footer_msg: "Team@copyright. All right reversed."
+  about_title: "About"
+  about_msg: "Learning English together. Enjoy us and have fun!"
+  about_link_name: "About"
+  contact_title: "Contact"
+  contact_msg: " Contact us via"
+  contact_link_name: "Contact"
+  contact_address: "here"
+  help_title: "Help"
+  help_msg: "Get help on the lession at the"
+  help_link_name: "here"
+  signup_link: "Sign up now!"
+  homepage_link: "Home"
+  login_link: "Login"
