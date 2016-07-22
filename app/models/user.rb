@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  before_save :downcase_email
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_USER_REGEX = /\A[A-Za-z0-9._-][A-Za-z0-9._-]{2,19}\z/
 
@@ -11,8 +14,22 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  validates :email, presence: true, length: {maximum: 255}, uniqueness: true,
-    format: {with: VALID_EMAIL_REGEX}
+  validates :email, presence: true, length: {maximum: 255},
+    uniqueness: {case_sensitive:false}, format: {with: VALID_EMAIL_REGEX}
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
-  validates :username, format: {with: VALID_USER_REGEX}
+  validates :name, format: {with: VALID_USER_REGEX}
+  validate :picture_size
+  has_secure_password
+  mount_uploader :avatar, AvatarUploader
+
+  private
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  def picture_size
+    if avatar.size > 2.megabytes
+      errors.add :picture, t("upload_avatar_notice")
+    end
+  end
 end
