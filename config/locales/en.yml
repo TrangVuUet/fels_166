@@ -35,3 +35,10 @@ en:
   signup_link: "Sign up now!"
   homepage_link: "Home"
   login_link: "Login"
+  category: "Category"
+  category_new: "Category new"
+  messages:
+    create_success: "Create success"
+    create_failed: "Create failed"
+    error: "Error"
+    admin_login: "User is not role"
