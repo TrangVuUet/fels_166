@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721020410) do
+ActiveRecord::Schema.define(version: 20160723102029) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "action_type"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160721020410) do
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_digest"
   end
 
   create_table "word_answers", force: :cascade do |t|
