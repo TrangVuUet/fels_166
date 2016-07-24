@@ -22,6 +22,12 @@ class User < ActiveRecord::Base
   has_secure_password
   mount_uploader :avatar, AvatarUploader
 
+  def self.digest string
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+     BCrypt::Engine.cost
+    BCrypt::Password.create string, cost: cost
+  end
+
   private
   def downcase_email
     self.email = email.downcase

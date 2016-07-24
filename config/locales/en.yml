@@ -20,7 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
   app_name: "E-lerning system"
-  home_msg: "Welcome you!"
+  home:
+    msg: "Welcome you!"
+    acc_name: "Account"
   footer_msg: "Team@copyright. All right reversed."
   about_title: "About"
   about_msg: "Learning English together. Enjoy us and have fun!"
@@ -50,3 +52,12 @@ en:
   upload_avatar_notice: "should be less than 5MB"
   avatar_error_msg: "Maximum file size is 5MB. Please choose a smaller file."
   confirm_password_btn: "Confirmation"
+  login:
+    title: "Login"
+    text_new_user: "New user?"
+    failed_msg: "Invalid email/password combination"
+  user:
+    users_index: "Users"
+    profile: "Profile"
+    settings: "Settings"
+    logout: "Logout"
