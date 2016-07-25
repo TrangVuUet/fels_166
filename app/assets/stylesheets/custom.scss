@@ -3,7 +3,7 @@
 
 /* mixins, variables, etc */
 $gray-medium-light: #eaeaea;
-
+$font-time-roman: "Times New Roman";
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -13,9 +13,16 @@ $gray-medium-light: #eaeaea;
 /* universal */
 body {
   padding-top: 60px;
-  color: #ffffff
+  color: #ffffff;
+  font-family: $font-time-roman, Times, serif;
 }
+body{
+  .title{
+    font-size: 40px;
+    text-align: center;
 
+  }
+}
 section {
   overflow: auto;
 }
@@ -182,4 +189,12 @@ footer {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+table{
+  .action{
+    width: 40px;
+  }
+  .index{
+    width: 50px;
+  }
 }
