@@ -45,6 +45,7 @@ en:
     error: "Error"
     admin_login: "User is not role"
   signup_title: "Sign up"
+  signup_btn: "Sign up"
   error_unit: "error"
   error_signup_msg: "The form contains"
   signup_success_msg: "Welcome to the E-lerning system"
@@ -62,3 +63,9 @@ en:
     profile: "Profile"
     settings: "Settings"
     logout: "Logout"
+  edit_user:
+    title: "Edit user"
+    save_btn: "Save change"
+    msg: "Update your profile"
+    update_success: "Profile updated"
+    not_login: "Please login"
