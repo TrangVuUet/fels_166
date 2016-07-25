@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+
+  before_action :logged_in_user, only: [:index, :edit, :update]
   before_action :find_user, only: [:edit, :update, :show]
   before_action :correct_user, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -14,6 +16,15 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render :new
+    end
+  end
+
+  def index
+    if params[:search]
+      @users = User.search(params[:search]).paginate page: params[:page],
+       per_page: Settings.per_page
+    else
+      @users = User.paginate page: params[:page], per_page: Settings.per_page
     end
   end
 
@@ -41,5 +52,4 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by id: params[:id]
   end
-
 end

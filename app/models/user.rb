@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
   before_save :downcase_email
+  scope :search, ->(keyword) { where("name LIKE ?", "%#{keyword}%") }
+  default_scope -> { order(name: :asc) }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_USER_REGEX = /\A[A-Za-z0-9._-][A-Za-z0-9._-]{2,19}\z/
@@ -17,7 +19,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: {maximum: 255},
     uniqueness: {case_sensitive:false}, format: {with: VALID_EMAIL_REGEX}
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
-  validates :name, format: {with: VALID_USER_REGEX}
+  validates :name, presence: true
   validate :picture_size
   has_secure_password
   mount_uploader :avatar, AvatarUploader
