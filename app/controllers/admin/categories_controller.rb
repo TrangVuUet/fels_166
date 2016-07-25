@@ -1,5 +1,8 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::AdminController
+
   def index
+    @categories = Category.order(created_at: :desc).paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   def new

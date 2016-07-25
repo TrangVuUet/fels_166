@@ -2,3 +2,4 @@ avatar_width: 200
 avatar_height: 200
 avatar_accept_file: "image/jpeg,image/gif,image/png"
 remembered: "1"
+per_page: 5

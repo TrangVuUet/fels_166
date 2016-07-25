@@ -43,7 +43,7 @@ en:
     create_success: "Create success"
     create_failed: "Create failed"
     error: "Error"
-    admin_login: "User is not role"
+    admin_login: "You are not role"
   signup_title: "Sign up"
   signup_btn: "Sign up"
   error_unit: "error"
@@ -69,3 +69,15 @@ en:
     msg: "Update your profile"
     update_success: "Profile updated"
     not_login: "Please login"
+  admin:
+    category:
+      name: "Category"
+      new: "Category new"
+      index:
+        name: "Name"
+        action:
+          name: Action
+          delete: ""
+          edit: ""
+          detail: "Detail"
+          confirm: "You sure?"
