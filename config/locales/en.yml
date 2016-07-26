@@ -51,6 +51,13 @@ en:
       avatar: "Avatar"
       name: "Name"
       email: "Email"
+      view_btn: "View"
+      del_btn: "Delete"
+    delete:
+      success_msg: " was successful deleted"
+      fail_msg: "Connot delete. Contact the administrator"
+      confirm_msg: "You sure?"
+      not_exist_msg: "Oppp. User doesn't exist."
   edit_user:
     title: "Edit user"
     save_btn: "Save change"
