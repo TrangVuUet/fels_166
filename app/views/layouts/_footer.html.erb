@@ -1,11 +1,21 @@
-<footer class="footer">
-  <small>
-    <%= t "footer_msg" %>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to t("about_link_name"), about_path %></li>
-      <li><%= link_to t("contact_link_name"), contact_path %></li>
-    </ul>
-  </nav>
-</footer>
+<div class="ed_footer_bottom">
+  <div class="container">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="ed_copy_right">
+          <small><%= t "footer_msg" %></small>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="ed_footer_menu">
+            <ul>
+              <li><%= link_to t("about_link_name"), about_path %></li>
+              <li><%= link_to t("contact_link_name"), contact_path %></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
