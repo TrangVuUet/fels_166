@@ -1,29 +1,67 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to t("app_name"), root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("homepage_link"), root_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to t("user.users_index"), users_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= t "home.acc_name" %>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to t("user.profile"), current_user %></li>
-              <li><%= link_to t("user.settings"), edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to t("user.logout"), logout_path, method: "delete" %>
+<header id="ed_header_wrapper">
+  <div class="ed_header_top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <% if logged_in? %>
+            <p><%= t :welcome_guest %></p>
+            <div class="ed_info_wrapper">
+              <%= link_to t("user.logout"), logout_path, method: "delete" %>
+              <%= link_to t("user.settings"), edit_user_path(current_user) %>
+            </div>
+          <% else %>
+            <p><%= t :welcome_guest %></p>
+            <div class="ed_info_wrapper">
+              <%= link_to t("login.title"), "#", id: :login_button %>
+              <div id="login_one" class="ed_login_form">
+                  <%= render "sessions/new" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ed_header_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2">
+          <div class="framgia_edu_logo">
+            <%= link_to image_tag("logo.png"), root_path, id: "logo" %>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8">
+          <div class="framgia_menu_toggle navbar-toggle" data-toggle="collapse"
+            data-target="#ed_menu">Menu <i class="fa fa-bars"></i>
+          </div>
+          <div class="framgia_menu">
+            <ul class="collapse navbar-collapse" id="ed_menu">
+              <li class="active">
+                <%= link_to t("homepage_link"), root_path %>
               </li>
             </ul>
-          </li>
-        <% else %>
-          <li><%= link_to t("login.title"), login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
+<div class="ed_pagetitle" data-stellar-background-ratio="0.5"
+  data-stellar-vertical-offset="0">
+  <div class="ed_img_overlay"></div>
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="page_title">
+          <h2><%= t "home.msg" %></h2>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <ul class="breadcrumb">
+          <li><%= link_to t("homepage_link_welcome"), root_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 en:
   app_name: "E-lerning system"
+  welcome_guest: "welcome guest"
   home:
     msg: "Welcome you!"
     acc_name: "Account"
@@ -70,4 +71,4 @@ en:
           confirm: "You sure?"
   search_text: "Search users"
   search_btn: "Search"
-
+  homepage_link_welcome: "Home"
