@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :categories, except: [:destroy, :update]
   end
   get "signup" => "users#new"
-  resources :users, except: [:index, :delete]
+  resources :users, except: [:delete]
 end

@@ -5,9 +5,9 @@
 $gray-medium-light: #eaeaea;
 $font-time-roman: "Times New Roman";
 @mixin box_sizing {
-  -moz-box-sizing:    border-box;
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
+  box-sizing: border-box;
 }
 
 /* universal */
@@ -16,6 +16,7 @@ body {
   color: #ffffff;
   font-family: $font-time-roman, Times, serif;
 }
+
 body{
   .title{
     font-size: 40px;
@@ -83,10 +84,19 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2.5em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+h3 {
+  font-size: 1.5em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: right;
   font-weight: normal;
   color: $gray-light;
 }
@@ -190,6 +200,7 @@ footer {
   width: auto;
   margin-left: 0;
 }
+
 table{
   .action{
     width: 40px;
@@ -198,3 +209,21 @@ table{
     width: 50px;
   }
 }
+
+/* Users index */
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+.search_box {
+  margin:0;
+  margin-top: 10px;
+  padding: 0;
+}
+
