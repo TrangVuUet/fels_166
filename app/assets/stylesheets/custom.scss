@@ -14,6 +14,7 @@ body{
 img{
     max-width: 100%;
 }
+
 a{
     color: #272727;
     text-decoration: none;
@@ -396,10 +397,21 @@ form{
         }
     }
 }
+
 .ed_copy_right {
     float: left;
     padding-bottom: 2px;
     text-align: center;
     width: 100%;
     color:#ffffff;
+}
+
+#search{
+  width: 500px;
+  height: 40px !important;
+}
+
+#searchbtn{
+  width: 100px;
+  height: 40px !important;
 }

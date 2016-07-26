@@ -21,6 +21,13 @@
           <td><%= image_tag user.avatar.url if user.avatar? %></td>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
+          <td>
+            <% if current_user.admin? && !current_user.current_user?(user) %>
+              <%= link_to t("user.index.view_btn"), user %>|
+              <%= link_to t("user.index.del_btn"), [:admin, user],
+              method: :delete, data: {confirm: t("user.delete.confirm_msg")} %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
   </tbody>
