@@ -25,4 +25,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end
+
+  def verify_admin
+    unless logged_in? && current_user.admin?
+      flash[:danger] = t "messages.admin_login"
+      redirect_to root_path
+    end
+  end
 end

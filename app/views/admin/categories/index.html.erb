@@ -1,34 +1,33 @@
 <% provide :title, t("admin.category.name") %>
-<div class="title"><%= t "admin.category.name" %></div>
-<%= will_paginate %>
-  <div class="table-responsive table-condensed admin-category">
-    <table class="table">
-      <thead>
+<h2><%= t "admin.category.name" %></h2>
+<div class="table-responsive table-condensed admin-category">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="index"></th>
+        <th><%= t "admin.category.index.name" %></th>
+        <th class="action"><%= t "admin.category.index.action.name" %></th>
+        <th class="action"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each_with_index do |category, index | %>
         <tr>
-          <th class="index"></th>
-          <th><%= t "admin.category.index.name" %></th>
-          <th class="action"><%= t "admin.category.index.action.name" %></th>
-          <th class="action"></th>
+          <td><%= index.to_i + 1 %></td>
+          <td><%= category.name %></td>
+          <td>
+          <%= link_to t("admin.category.index.action.delete"),
+            [:admin, category], method: :delete,
+            data: {confirm: t("admin.category.index.action.confirm")},
+            class: "glyphicon glyphicon-trash" %>
+          </td>
+          <td>
+          <%= link_to t("admin.category.index.action.edit"),
+            edit_admin_category_path(category), class: "glyphicon glyphicon-pencil" %>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <% @categories.each_with_index do |category, index | %>
-          <tr>
-            <td><%= index.to_i + 1 %></td>
-            <td><%= category.name %></td>
-            <td>
-            <%= link_to t("admin.category.index.action.delete"),
-              [:admin, category], method: :delete,
-              data: {confirm: t("admin.category.index.action.confirm")},
-              class: "glyphicon glyphicon-trash" %>
-            </td>
-            <td>
-            <%= link_to t("admin.category.index.action.edit"),
-              edit_admin_category_path(category), class: "glyphicon glyphicon-pencil" %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= will_paginate %>

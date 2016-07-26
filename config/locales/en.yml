@@ -68,6 +68,7 @@ en:
     category:
       name: "Category"
       new: "Category new"
+      find: "Category don't exist"
       index:
         name: "Name"
         action:
@@ -76,6 +77,14 @@ en:
           edit: ""
           detail: "Detail"
           confirm: "You sure?"
+      destroy:
+        success: "Category delete success"
+        error: "Category delete failed"
+      edit:
+        name: "Category edit"
+      update:
+        success: "Category update success"
+        error: "Category update failed"
   search_text: "Search users"
   search_btn: "Search"
   homepage_link_welcome: "Home"
