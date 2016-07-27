@@ -1,0 +1,21 @@
+<%= form_for [:admin, @word] do |f| %>
+  <%= render "/shared/error_messages", object: f.object %>
+  <div class="col-md-6">
+    <h4><%= t ".admin.word.new.word_title"%></h4>
+    <%= f.label :content %>
+    <%= f.text_field :content, class: "form-control" %>
+  </div>
+  <div class="col-md-6">
+  <h4><%= t ".admin.word.new.answer_title"%></h4>
+    <div class="show_answer_form">
+      <%= render "new_answer_form", f: f %>
+    </div>
+    <div class="row">
+      <div class="pull-right">
+        <%= link_to t(".admin.word.new.add_answer"), "", id: "add_answer",
+          class: "glyphicon glyphicon-plus", onclick: "return false" %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit t(:category_new), class: "btn btn-primary" %>
+<% end %>

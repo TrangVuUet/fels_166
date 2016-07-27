@@ -87,7 +87,7 @@ en:
         action:
           name: Action
           delete: ""
-          edit: ""
+          edit: "Edit Category"
           detail: "Detail"
           confirm: "You sure?"
       destroy:
@@ -98,6 +98,14 @@ en:
       update:
         success: "Category update success"
         error: "Category update failed"
+    word:
+      name: "Word"
+      new:
+        name: "New Word and Answer"
+        word_title: "Word"
+        answer_title: "Answer"
+        add_answer: ""
+      find: "Word don't exist"
   search_text: "Search users"
   search_btn: "Search"
   homepage_link_welcome: "Home"

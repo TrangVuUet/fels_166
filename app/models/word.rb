@@ -3,5 +3,6 @@ class Word < ActiveRecord::Base
   has_many :results
   has_many :word_answers, dependent: :destroy
 
-  validates :content, length: {minimum: 6}
+  accepts_nested_attributes_for :word_answers,
+    reject_if: proc {|attributes| attributes["content"].blank?}
 end
