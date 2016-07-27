@@ -1,0 +1,28 @@
+<% provide :title, t("user.follow_title") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1><%= link_to @user.name, @user %></h1>
+      <%= render "shared/stats" %>
+      <%= image_tag @user.avatar.url if @user.avatar? %>
+    </section>
+  </aside>
+  <div class="col-md-4">
+    <h3><%= t "user.following.title" %></h3>
+    <% @users.each do |following| %>
+      <div>
+        <%= image_tag following.avatar.url if following.avatar? %>
+        <%= link_to following.name, following %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h3><%= t "user.following.title" %></h3>
+    <% @users.each do |follower| %>
+      <div>
+        <%= image_tag follower.avatar.url if follower.avatar? %>
+        <%= link_to follower.name, follower %>
+      </div>
+    <% end %>
+  </div>
+</div>
