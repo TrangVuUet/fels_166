@@ -1,0 +1,32 @@
+<% provide :title, t("category.title_index") %>
+<h2><%= t "category.title_index" %></h2>
+<div class="search-form">
+  <%= form_tag categories_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: t("search_text")  %>
+    <%= submit_tag t("search_btn"), id: "searchbtn" %>
+  <% end %>
+</div>
+<div class="table-responsive table-condensed">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="index"></th>
+        <th><%= t "admin.category.index.name" %></th>
+        <th><%= t "category.total_word" %></th>
+        <th><%= t "category.total_lesson" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each_with_index do |category, index| %>
+        <tr>
+          <td><%= index.to_i + 1 %></td>
+          <td><%= category.name %></td>
+          <td><%=  %></td>
+          <td><%=  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</ul>
+<%= will_paginate %>

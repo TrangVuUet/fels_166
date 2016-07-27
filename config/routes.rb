@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   resources :users, except: [:delete]
   resources :relationships, only: [:create, :destroy, :show]
+  resources :categories, only: [:index, :show]
 end

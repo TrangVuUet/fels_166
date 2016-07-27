@@ -408,12 +408,12 @@ form{
 }
 
 #search{
-  width: 500px;
+  width: 250px;
   height: 40px !important;
 }
 
 #searchbtn{
-  width: 100px;
+  width: 80px;
   height: 40px !important;
 }
 
@@ -458,4 +458,8 @@ form{
     font-size: 20px;
     width: 200px;
     color: black
+}
+
+.search-form {
+  float:right
 }

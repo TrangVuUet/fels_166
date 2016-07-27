@@ -17,7 +17,7 @@
   <tbody>
       <% @users.each.with_index do |user, index| %>
         <tr>
-          <td><%= index %></td>
+          <td><%= index + 1 %></td>
           <td><%= image_tag user.avatar.url if user.avatar? %></td>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
