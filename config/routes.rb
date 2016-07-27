@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index, :show, :destroy]
     resources :categories, except: [:show]
+    resources :words, only: [:new, :create]
   end
   get "signup" => "users#new"
   resources :users, except: [:delete]
