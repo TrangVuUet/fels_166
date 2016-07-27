@@ -101,3 +101,9 @@ en:
   search_text: "Search users"
   search_btn: "Search"
   homepage_link_welcome: "Home"
+  category:
+    title_index: "Categories"
+    label_index: "All categories"
+    not_found: "Oppp! No category found."
+    total_word: "Total words"
+    total_lesson: "Total lessons"
