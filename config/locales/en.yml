@@ -41,9 +41,15 @@ en:
     rememberme_label: "Remember me on this computer"
   user:
     users_index: "Users"
-    profile: "Profile"
+    profile:
+      title: "Profile"
+      email: "Email"
+      gender: "Gender"
+      edit: "Edit this user"
     settings: "Settings"
     logout: "Logout"
+    follow_btn: "Follow"
+    unfollow_btn: "Unfollow"
     index:
       title: "All Users"
       search_btn: "Search"
@@ -58,6 +64,13 @@ en:
       fail_msg: "Connot delete. Contact the administrator"
       confirm_msg: "You sure?"
       not_exist_msg: "Oppp. User doesn't exist."
+    follow_title: "Follow Users"
+    following:
+      title: "Following"
+      num_following: "following"
+    followers:
+      title: "Followers"
+      num_followers: "followers"
   edit_user:
     title: "Edit user"
     save_btn: "Save change"
