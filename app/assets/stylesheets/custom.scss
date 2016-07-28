@@ -443,13 +443,25 @@ form{
   padding: 0;
 }
 #follow_form {
-    padding-top: 15px;
-    font-size: 20px;
-    width: 200px;
-    color: black
+  padding-top: 15px;
+  font-size: 20px;
+  width: 200px;
+  color: black
 }
-.search-form {
-  float:right
+
+.search_form {
+  float: right;
+  height: 30px;
+}
+
+.drop-down-category {
+  height: 30px;
+}
+
+#word_category_id {
+  float: left;
+  padding-top: 5px
+
 }
 .form{
   .button {
