@@ -38,7 +38,7 @@ en:
     title: "Login"
     text_new_user: "New user?"
     failed_msg: "Invalid email/password combination"
-    rememberme_label: "Remember me on this computer"
+    rememberme_label: "Remember me"
   user:
     users_index: "Users"
     profile:
@@ -106,6 +106,25 @@ en:
         answer_title: "Answer"
         add_answer: ""
       find: "Word don't exist"
+    words:
+      index:
+        title: "Word and Word answer"
+        content: "Word"
+        action: "Action"
+        delete: "Delete"
+        edit: "Edit"
+        confirm: "You sure?"
+        answer: "Word answer"
+        btn_new: "New Word"
+        category: "Category"
+      word:
+        delete: "Delete"
+        edit: "Edit"
+        confirm: "You sure?"
+        detail: "Detail"
+        word_answer: "Word Answer"
+      new:
+        title: "New Word and Word answer"
   search_text: "Search users"
   search_btn: "Search"
   homepage_link_welcome: "Home"

@@ -14,22 +14,18 @@ class ApplicationController < ActionController::Base
     redirect_to root_url unless current_user.current_user? @user
   end
 
-  def correct_admin
-    redirect_to root_url unless current_user.admin?
+  def verify_admin
+    unless current_user.admin?
+      flash[:danger] = t "messages.admin_login"
+      redirect_to root_path
+    end
   end
 
-  def find_user
+  def load_user
     @user = User.find_by id: params[:id]
     if @user.nil?
       flash[:danger] = t "user.delete.not_exist_msg"
       redirect_to root_url
-    end
-  end
-
-  def verify_admin
-    unless logged_in? && current_user.admin?
-      flash[:danger] = t "messages.admin_login"
-      redirect_to root_path
     end
   end
 end
