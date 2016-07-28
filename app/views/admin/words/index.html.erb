@@ -1,0 +1,30 @@
+<% provide :title, t(".title") %>
+<h2><%= t ".title" %></h2>
+<div class="row navbar-right">
+  <div class="form">
+    <div class="form-group">
+      <%= select_tag "word_category",
+        options_from_collection_for_select(@categories, "id", "name"),
+        class: "button", data: { url: admin_words_path } %>
+      <%= link_to t(".btn_new"), new_admin_word_path, class: "button" %>
+    </div>
+  </div>
+</div>
+<div class="table-responsive table-condensed admin-category">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="index"></th>
+        <th><%= t ".content" %></th>
+        <th><%= t ".answer" %></th>
+        <th class="action"><%= t ".action" %></th>
+        <th class="action"></th>
+        <th class="action"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @words %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate %>
