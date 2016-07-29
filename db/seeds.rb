@@ -19,7 +19,13 @@ followers = users[3..40]
 following.each {|followed| user.follow followed}
 followers.each {|follower| follower.follow user}
 Category.create! name:"English"
-99.times do |n|
+10.times do |n|
   name  = Faker::Name.name
   Category.create! name: name
+end
+Word.create! content:"Xin chao"
+50.times do |n|
+  name  = Faker::Name.name
+  Word.create!(content: name,
+    category_id: 1)
 end

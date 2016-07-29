@@ -1,0 +1,42 @@
+<% provide :title, t("user.word.title") %>
+<h2><%= t "user.word.title" %></h2>
+<div class="search_form">
+  <%= form_tag words_path, method: :get do %>
+    <span><%= t "user.category.name" %></span>
+    <span><%= select(nil, "category_id",
+      Category.all.collect {|p| [p.name, p.id]}, {include_blank: true}) %>
+      <%= text_field_tag :word, params[:word],
+        placeholder: t("user.word.search_word")  %>
+      <%= submit_tag t("search_btn"), id: "searchbtn" %>
+    </span>
+  <% end %>
+</div>
+<div class="table-responsive table-condensed">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="index"></th>
+        <th class="index"><%= t "user.word.content" %></th>
+        <th class="index text-center"><%= t "user.word.answer_word" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @words.each_with_index do |word, index| %>
+        <tr>
+          <td><%= index.to_i + 1 %></td>
+          <td><%= word.content %></td>
+          <td>
+            <div class="row text-center">
+              <%= link_to "", word_word_answers_path(word),
+                class: "glyphicon glyphicon-eye-open",
+                id: "show_word_answer",
+                onclick: "return show_word_answer(this)" %>
+              <div class="row show_word_answer_<%= word.id %>"></div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate %>

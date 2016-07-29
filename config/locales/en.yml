@@ -71,6 +71,16 @@ en:
     followers:
       title: "Followers"
       num_followers: "followers"
+    word:
+      title: "All Words"
+      content: "Words"
+      search_word: "Search words"
+      not_found: "No word found."
+      answer_word: "Word answers"
+    word_answer:
+      not_found: "No word answer found."
+    category:
+      name: "Choose category"
   edit_user:
     title: "Edit user"
     save_btn: "Save change"
