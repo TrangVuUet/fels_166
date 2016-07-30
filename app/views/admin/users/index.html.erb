@@ -1,34 +1,42 @@
 <% provide :title, t("user.index.title") %>
-<h2><%= t "user.index.title"  %></h2>
-<%= form_tag users_path, method: :get do %>
-  <%= text_field_tag :search, params[:search], placeholder: t("search_text")  %>
-  <%= submit_tag t("search_btn"), id: "searchbtn" %>
-<% end %>
-<%= will_paginate %>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th><%= t ".index_no" %></th>
-      <th><%= t ".avatar" %></th>
-      <th><%= t ".name" %></th>
-      <th><%= t ".email" %></th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @users.each.with_index do |user, index| %>
-        <tr>
-          <td><%= index + 1 %></td>
-          <td><%= image_tag user.avatar.url if user.avatar? %></td>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-          <td>
-            <% if current_user.admin? && !current_user.current_user?(user) %>
-              <%= link_to t("user.index.view_btn"), user %>|
-              <%= link_to t("user.index.del_btn"), [:admin, user],
-              method: :delete, data: {confirm: t("user.delete.confirm_msg")} %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-12">
+    <div class="ed_teacher_div">
+      <div class="row">
+        <h2><%= t "user.index.title"  %></h2>
+        <%= form_tag users_path, method: :get do %>
+          <%= text_field_tag :search, params[:search], placeholder: t("search_text")  %>
+          <%= submit_tag t("search_btn"), id: "searchbtn" %>
+        <% end %>
+        <%= will_paginate %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th><%= t ".index_no" %></th>
+              <th><%= t ".avatar" %></th>
+              <th><%= t ".name" %></th>
+              <th><%= t ".email" %></th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @users.each.with_index do |user, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= image_tag user.avatar.url if user.avatar? %></td>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                  <td>
+                    <% if current_user.admin? && !current_user.current_user?(user) %>
+                      <%= link_to t("user.index.view_btn"), user %>|
+                      <%= link_to t("user.index.del_btn"), [:admin, user],
+                      method: :delete, data: {confirm: t("user.delete.confirm_msg")} %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

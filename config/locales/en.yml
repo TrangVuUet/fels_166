@@ -1,6 +1,7 @@
 en:
   app_name: "E-lerning system"
   welcome_guest: "welcome guest"
+  join_to: "Joint To"
   home:
     msg: "Welcome you!"
     acc_name: "Account"
@@ -135,6 +136,26 @@ en:
         word_answer: "Word Answer"
       new:
         title: "New Word and Word answer"
+      new_word_form:
+        none: "None"
+    categories:
+      index:
+        btn_new: "New Category"
+        confirm: "You sure?"
+        name: "Name"
+        action: "Action"
+      show:
+        title: "Show Category"
+        word: "Word"
+        status: "Status"
+        action: "Action"
+        independent: "independent"
+        depends: "depends"
+        danger_notify: "Don't delete record"
+      category_form_edit:
+        save: "Save"
+      edit:
+        title: "Category edit"
   search_text: "Search users"
   search_btn: "Search"
   homepage_link_welcome: "Home"
@@ -144,3 +165,12 @@ en:
     not_found: "Oppp! No category found."
     total_word: "Total words"
     total_lesson: "Total lessons"
+  shared:
+    user:
+      name: "User"
+      lesson: "Lesson"
+      result: "Result"
+      manage_task: "Manage"
+      categories: "Categories"
+      users: "Users"
+      words: "Words"
