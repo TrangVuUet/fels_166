@@ -1,0 +1,23 @@
+<h3>Result</h3>
+<%= form_for [@lesson, @result] do |f| %>
+<div>
+  <%= f.label :lesson_id %>
+  <% @list_words.each do |list_word| %>
+    <%= f.fields_for :words do |w| %>
+      <div class="col-md-12">
+        <strong><%= list_word.content %></strong><br/>
+        <% list_word.word_answers.each do |a| %>
+          <div><%= w.radio_button :answers, a.content%><%= a.content %></div>
+        <% end %>
+      </div>
+    <% end %>
+   <% end %>
+</div>
+<div>
+  <%= f.submit t("user.lesson.save_btn"), class: "btn btn-primary" %>
+  <%= f.submit t("user.lesson.submit_btn"), class: "btn btn-primary",
+    data: {confirm: t("user.lesson.sure")} %>
+</div>
+<% end %>
+
+

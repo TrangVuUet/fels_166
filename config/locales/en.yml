@@ -81,6 +81,20 @@ en:
       not_found: "No word answer found."
     category:
       name: "Choose category"
+      create_exam: "Create Lession"
+    lesson:
+      title: "Lessons"
+      success_msg: "Create lesson success"
+      failed_msg: "Create lesson failed"
+      status: "Status"
+      action: "Action"
+      category: "Category"
+      created_at: "Created Date"
+      score: "Score"
+      number_word: "Number words"
+      save_btn: "Save"
+      submit_btn: "Submit"
+      sure: "Sure?"
   edit_user:
     title: "Edit user"
     save_btn: "Save change"

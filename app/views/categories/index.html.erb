@@ -2,7 +2,7 @@
 <h2><%= t "category.title_index" %></h2>
 <div class="search-form">
   <%= form_tag categories_path, method: :get do %>
-    <%= text_field_tag :search, params[:search], placeholder: t("search_text")  %>
+    <%= text_field_tag :search, params[:search] %>
     <%= submit_tag t("search_btn"), id: "searchbtn" %>
   <% end %>
 </div>
@@ -23,6 +23,10 @@
           <td><%= category.name %></td>
           <td><%=  %></td>
           <td><%=  %></td>
+          <td>
+            <%= link_to t("user.show.create_exam"),
+              category_lessons_path(category), method: :post %>
+          </td>
         </tr>
       <% end %>
     </tbody>
