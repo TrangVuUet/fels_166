@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2">
           <div class="framgia_edu_logo">
-            <%= link_to image_tag("logo.png"), root_path, id: "logo" %>
+            <%= link_to image_tag("logo.png"), root_path, id: :logo %>
           </div>
         </div>
         <div class="col-lg-6 col-md-8 col-sm-8">
@@ -13,7 +13,7 @@
               <li class="active">
                 <%= link_to t("homepage_link"), root_path %>
               </li>
-               <li>
+              <li>
                 <%= link_to t("user.users_index"), users_path %>
               </li>
               <li>
@@ -30,11 +30,13 @@
         <div class="col-lg-4 col-md-12 col-sm-12">
           <% if logged_in? %>
             <div class="ed_info_wrapper">
-              <%= link_to t("user.logout"), logout_path, method: "delete" %>
+              <%= link_to t("user.logout"), logout_path, method: :delete,
+                class: "glyphicon glyphicon-user" %>
             </div>
           <% else %>
             <div class="ed_info_wrapper">
-              <%= link_to t("login.title"), "#", id: :login_button %>
+              <%= link_to t("login.title"), "#", id: :login_button,
+                class: "glyphicon glyphicon-user" %>
               <div id="login_one" class="ed_login_form">
                   <%= render "sessions/new" %>
               </div>

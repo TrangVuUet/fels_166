@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="ed_teacher_div">
+      <div class="row">
+        <div class="ed_sidebar_wrapper">
+          <div class="ed_profile_img">
+            <%= image_tag current_user.avatar.url,
+              class: "img-responsive img-avatar" if current_user.avatar? %>
+          </div>
+          <h3><%= current_user.name %></h3>
+          <p class=""><% t :join_to %><%= current_user.created_at
+            .strftime t (".format_date") %></p>
+          <div class="ed_tabs_left">
+            <ul class="nav nav-tabs">
+              <li><%= link_to t ".lesson" %></li>
+              <li><%= link_to t ".result" %></li>
+              <% if current_user.admin? %>
+                <li class="task text-center"><%= t ".manage" %></li>
+                <li><%= link_to t(".categories"), admin_categories_path %></li>
+                <li><%= link_to t(".users"), admin_users_path %></li>
+                <li><%= link_to t(".words"), admin_words_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

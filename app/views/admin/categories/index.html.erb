@@ -27,14 +27,18 @@
                   <td><%= index.to_i + 1 %></td>
                   <td><%= category.name %></td>
                   <td>
-                  <%= link_to "", [:admin, category], method: :delete,
-                    data: {confirm: t(".confirm")}, class: "glyphicon glyphicon-trash" %>
+                    <%= link_to [:admin, category], method: :delete,
+                      data: {confirm: t(".confirm")} do %>
+                      <span class="glyphicon glyphicon-trash"></span>
+                    <% end %>
                   </td>
                   <td>
-                  <%= link_to "", edit_admin_category_path(category),
-                    class: "glyphicon glyphicon-pencil" %>
-                  <%= link_to "", admin_category_path(category),
-                    class: "glyphicon glyphicon-check" %>
+                    <%= link_to edit_admin_category_path(category) do %>
+                      <span class="glyphicon glyphicon-pencil"></span>
+                    <% end %>
+                    <%= link_to admin_category_path(category) do %>
+                      <span class="glyphicon glyphicon-check"></span>
+                    <% end %>
                   </td>
                 </tr>
               <% end %>

@@ -1,47 +1,40 @@
 <% provide :title, @user.name %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @user.name %>
-        <%= image_tag @user.avatar.url if @user.avatar? %>
-      </h1>
-    </section>
-    <section><%= render "shared/stats" %></section>
-    <section><%= render "follow_form" %></section>
-  </aside>
-</div>
 <div class="panel panel-info">
-<div class="panel-heading">
-</div>
-<div class="panel-body">
-  <div class="row">
-    <div class="col-md-3 col-lg-3 " align="center">
-      <img alt="User Pic" src="/images/bg.jpg"
-      class="img-circle img-responsive">
+  <div class="panel-body">
+    <div class="row">
+      <section class="user_info  text-center">
+        <h1>
+          <%= @user.name %>
+        </h1>
+      </section>
     </div>
-    <div class=" col-md-9 col-lg-9 ">
-      <table class="table table-user-information">
-        <tbody>
-          <tr>
-            <td><%= t "user.profile.email" %></td>
-            <td><%= @user.email %></td>
-          </tr>
-          <tr>
-            <td><%= t "user.profile.gender" %></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="row">
+      <div class="col-md-3 col-lg-3" align="center">
+        <%= image_tag @user.avatar.url if @user.avatar? %>
+        <section><%= render "shared/stats" %></section>
+        <section><%= render "follow_form" %></section>
+      </div>
+      <div class="col-md-9 col-lg-9">
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td><%= t "user.profile.email" %></td>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td><%= t "user.profile.gender" %></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
- <div class="panel-footer">
+  <div class="panel-footer">
     <span class="pull-right">
-      <a href="edit.html" data-toggle="tooltip" type="button"
-        class="btn btn-sm btn-warning">
-        <i class="glyphicon glyphicon-edit"></i>
-      </a>
+      <%= link_to edit_user_path(@user) do %>
+        <span class="glyphicon glyphicon-edit btn btn-sm btn-warning"></span>
+      <% end %>
     </span>
-    </div>
+  </div>
 </div>

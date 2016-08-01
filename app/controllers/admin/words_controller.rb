@@ -20,7 +20,7 @@ class Admin::WordsController < ApplicationController
   def index
     @categories = Category.all
     if params[:search]
-      @words = Word.search(params[:search]).paginate page: params[:page],
+      @words = Word.filter_category(params[:search]).paginate page: params[:page],
         per_page: Settings.per_page
     else
       @words = Word.order(created_at: :desc).paginate page: params[:page],

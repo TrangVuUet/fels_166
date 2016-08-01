@@ -188,3 +188,4 @@ en:
       categories: "Categories"
       users: "Users"
       words: "Words"
+      format_date: "%m/%d/%Y"

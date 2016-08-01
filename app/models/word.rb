@@ -5,6 +5,10 @@ class Word < ActiveRecord::Base
   scope:search_category, ->(category_id = 0) {
     where("category_id is null OR category_id = ?", "#{category_id}")
   }
+  scope:filter_category, ->(category_id = 0){
+    where("category_id = ?", "#{category_id}")
+  }
+
   belongs_to :category
   has_many :results
   has_many :word_answers, dependent: :destroy
