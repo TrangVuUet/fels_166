@@ -42,18 +42,16 @@
                     <% if word.category_id != @category.id %>
                       <%= button_tag "", method: :PUT,
                         class: "glyphicon glyphicon-plus-sign
-                        btn btn-sm btn-warning",
-                        onclick: "return category_add_word(this)",
+                        btn btn-sm btn-warning category_add_word",
                         data: {url: admin_word_path(word),
                         category_id: @category.id}
                       %>
                     <% else %>
                       <%= button_tag "",method: :PUT,
-                        class: "glyphicon glyphicon-minus btn btn-sm btn-warning",
-                        onclick: "return category_add_word(this)",
-                        data: {url: admin_word_path(word),
-                          category_id: @category.id}
-                      %>
+                        class: "glyphicon glyphicon-minus
+                        btn btn-sm btn-warning category_add_word",
+                        category_id: @category.id,
+                        data: {url: admin_word_path(word)} %>
                     <% end %>
                   </span>
                 </td>
