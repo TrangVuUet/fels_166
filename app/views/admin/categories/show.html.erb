@@ -1,0 +1,68 @@
+<% provide :title, t(".title") %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="ed_teacher_div">
+      <h2 class="text-center"><%= @category.name %></h2>
+      <div class="row">
+        <h3><%= t ".word" %></h3>
+        <div class="alert alert-danger category_notifi hidden" >
+          <%= t :danger_notify %>
+        </div>
+       <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><%= t ".word" %></th>
+              <th><%= t ".status" %></th>
+              <th><%= t ".action" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @words.each_with_index do |word, index | %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= word.content %></td>
+                <td>
+                  <% if word.category_id == @category.id %>
+                    <span class="label label-success depend">
+                      <%= t ".depends" %>
+                    </span>
+                    <span class="label label-danger hidden independ">
+                      <%= t ".independent" %>
+                    </span>
+                  <% else %>
+                    <span class="label label-success hidden depend">
+                      <%= t ".depends" %></span>
+                    <span class="label label-danger independ">
+                      <%= t ".independent" %></span>
+                  <% end %>
+                </td>
+                <td>
+                  <span class="pull-center">
+                    <% if word.category_id != @category.id %>
+                      <%= button_tag "", method: :PUT,
+                        class: "glyphicon glyphicon-plus-sign
+                        btn btn-sm btn-warning",
+                        onclick: "return category_add_word(this)",
+                        data: {url: admin_word_path(word),
+                        category_id: @category.id}
+                      %>
+                    <% else %>
+                      <%= button_tag "",method: :PUT,
+                        class: "glyphicon glyphicon-minus btn btn-sm btn-warning",
+                        onclick: "return category_add_word(this)",
+                        data: {url: admin_word_path(word),
+                          category_id: @category.id}
+                      %>
+                    <% end %>
+                  </span>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          </table>
+          <%= will_paginate @words %>
+      </div>
+    </div>
+  </div>
+</div>

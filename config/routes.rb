@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
   namespace :admin do
     resources :users, only: [:index, :show, :destroy]
-    resources :categories, except: :show
+    resources :categories
     resources :words do
       resources :word_answers, only: :index
     end

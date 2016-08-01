@@ -1,10 +1,10 @@
 class Admin::CategoriesController < ApplicationController
   before_action :logged_in_user, :verify_admin
-  before_action :load_category, only: [:destroy, :edit, :update]
+  before_action :load_category, except: [:index, :new, :create]
 
   def index
-    @categories = Category.order(created_at: :desc).paginate page: params[:page],
-      per_page: Settings.per_page
+    @categories = Category.order(created_at: :desc)
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new
@@ -41,6 +41,11 @@ class Admin::CategoriesController < ApplicationController
       flash[:danger] = t "admin.category.update.error"
       render :edit
     end
+  end
+
+  def show
+    @words = Word.search_category(@category.id)
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   private
