@@ -30,6 +30,32 @@
       </div>
     </div>
   </div>
+  <div class="panel-body">
+    <h3><%= t "user.lesson.ur_lesson_title" %></h3>
+    <%= will_paginate @lessons %>
+    <div class="table-responsive table-condensed">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t "user.lesson.th_index" %></th>
+            <th><%= t "user.lesson.th_date" %></th>
+            <th><%= t "user.lesson.th_status" %></th>
+          </tr>
+        </thead>
+          <tbody>
+            <% @lessons.each.with_index do |lesson, index| %>
+              <tr>
+                <td><%= index %></td>
+                <td><%= lesson.created_at %></td>
+                <td><%= link_to (lesson.is_complete? ?
+                  t("user.lesson.stt_finish") : t("user.lesson.stt_continue")),
+                  lesson_path(lesson) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
   <div class="panel-footer">
     <span class="pull-right">
       <%= link_to edit_user_path(@user) do %>

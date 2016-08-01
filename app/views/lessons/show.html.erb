@@ -1,0 +1,16 @@
+<% provide :title, t("user.lesson.title") %>
+<div>
+  <%= @lesson.created_at %>
+  <br>
+  <span>
+    <%= @lesson.number_correct.to_s + "/" + @lesson.results.count.to_s %>
+  </span>
+</div>
+<h1><%= t "user.lesson.question_title"%></h1>
+<%= form_for @lesson do |f| %>
+  <ol>
+    <%= f.fields_for :results do |builder| %>
+      <%= render "result", f: builder %>
+    <% end %>
+  </ol>
+<% end %>

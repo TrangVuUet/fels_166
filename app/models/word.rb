@@ -29,4 +29,8 @@ class Word < ActiveRecord::Base
     end
     return false
   end
+
+  def correct_answer
+    self.word_answers.correct.first
+  end
  end

@@ -1,0 +1,15 @@
+<%= @lesson.results.count %>
+<%= form_for @lesson do |f| %>
+  <ol>
+  <%= f.fields_for :results do |builder| %>
+      <%= render "result", f: builder %>
+  <% end %>
+</ol>
+<div>
+  <%= f.submit t("user.lesson.save_btn"), class: "btn btn-primary" %>
+  <%= f.submit t("user.lesson.submit_btn"), class: "btn btn-primary",
+    data: {confirm: t("user.lesson.sure")} %>
+</div>
+<% end %>
+
+
