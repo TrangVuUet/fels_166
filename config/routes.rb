@@ -17,7 +17,13 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   resources :users, except: :delete
   resources :relationships, only: [:create, :destroy, :show]
-  resources :categories, only: [:index, :show]
+  resources :categories, only: [:index, :show] do
+    resources :lessons
+  end
+  resources :lessons
+  resources :lessons do
+    resources :results, only: :index
+  end
   resources :words, only: :index do
     resources :word_answers, only: :index
   end
