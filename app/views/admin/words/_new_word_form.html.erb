@@ -6,20 +6,21 @@
       {include_blank: t(".none")}) %>
   </div>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 form-group">
       <h4><%= t ".admin.word.new.word_title"%></h4>
       <%= f.label :content %>
       <%= f.text_field :content, class: "form-control" %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 form-group">
     <h4><%= t ".admin.word.new.answer_title"%></h4>
-      <div class="show_answer_form">
+      <div class="show_answer_form form-group">
         <%= render "new_answer_form", f: f %>
       </div>
-      <div class="row">
-        <div class="pull-right button">
-          <%= link_to t(".admin.word.new.add_answer"), "", id: "add_answer",
-            class: "glyphicon glyphicon-plus", onclick: "return false" %>
+      <div class="col-md-8 form-group">
+        <%= f.hidden_field :answer_count, value: @answers_show %>
+        <div class="text-center button form-group">
+          <%= f.button "", id: "add_answer", type: :button,
+            class: "btn glyphicon glyphicon-plus admin_add_word_answer" %>
         </div>
       </div>
     </div>

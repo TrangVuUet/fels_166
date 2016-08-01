@@ -13,7 +13,10 @@ class Word < ActiveRecord::Base
   has_many :results
   has_many :word_answers, dependent: :destroy
 
-  accepts_nested_attributes_for :word_answers,
+  validate :validate_answer
+  validates :content, presence: true, length: {minimum: 1}
+
+  accepts_nested_attributes_for :word_answers, allow_destroy: true,
     reject_if: proc {|attributes| attributes["content"].blank?}
 
   def update_category! category
@@ -23,14 +26,23 @@ class Word < ActiveRecord::Base
     return false
   end
 
-  def destroy_category!
-    if self.results.blank?
-      return self.update_attributes category_id: nil
-    end
-    return false
-  end
-
   def correct_answer
     self.word_answers.correct.first
   end
- end
+
+  def validate_answer
+    size_correct = self.word_answers.select{|answer| answer.is_correct}.size
+    if size_correct == 0
+      errors.add "", I18n.t("messages.validate_answer_size_correct")
+    end
+    size_correct_content = self.word_answers.select{|answer| answer.content.blank?}.size
+    if size_correct_content == 0
+      errors.add "", I18n.t("messages.validate_answer_blank")
+    end
+    size_correct_answer = self.word_answers.size
+    puts size_correct_answer
+    if 1 < size_correct_answer || size_correct_answer > 6
+      errors.add "", I18n.t("messages.validate_answer_size")
+    end
+  end
+end

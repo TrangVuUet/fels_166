@@ -26,6 +26,9 @@ en:
     create_failed: "Create failed"
     error: "Error"
     admin_login: "You are not role"
+    validate_answer_size_correct: "You must choose one answer correct"
+    validate_answer_blank: "has answer blank"
+    validate_answer_size: "Answer must 2 to 6"
   signup_title: "Sign up"
   signup_btn: "Sign up"
   error_unit: "error"
@@ -166,6 +169,14 @@ en:
         title: "New Word and Word answer"
       new_word_form:
         none: "None"
+      destroy:
+        success: "Delete success"
+        danger: "Don't delete record"
+      edit:
+        title: "Edit Word and Word answer"
+      update:
+        success: "Update success"
+        danger: "Don't update this record"
     categories:
       index:
         btn_new: "New Category"
@@ -180,10 +191,16 @@ en:
         independent: "independent"
         depends: "depends"
         danger_notify: "Don't delete record"
-      category_form_edit:
+      form_edit:
         save: "Save"
       edit:
         title: "Category edit"
+        save: "Edit Category"
+      form:
+        title: "Categroy"
+      new:
+        title: "New Categroy"
+        save: "New category"
   search_text: "Search users"
   search_btn: "Search"
   homepage_link_welcome: "Home"
