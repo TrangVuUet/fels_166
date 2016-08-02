@@ -29,6 +29,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @lessons = Lesson.user_own current_user
+    @lessons = Lesson.paginate page: params[:page], per_page: Settings.per_page
   end
 
   def edit
