@@ -4,3 +4,5 @@ avatar_accept_file: "image/jpeg,image/gif,image/png"
 remembered: "1"
 per_page: 5
 number_words: 5
+max_answer: 5
+answer_default: 2
