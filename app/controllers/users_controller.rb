@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
+      @user.activity_user_update @user.id, nil, Settings.activity_user_update
       flash[:success] = t "edit_user.update_success"
       redirect_to @user
     else

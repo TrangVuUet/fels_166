@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
+  include CreateActivity
+
   attr_accessor :remember_token
   before_save :downcase_email
-  scope :search, ->(keyword) { where("name LIKE ?", "%#{keyword}%") }
-  default_scope -> { order(name: :asc) }
+  scope :search, ->(keyword) {where("name LIKE ?", "%#{keyword}%")}
+  default_scope -> {order(name: :asc)}
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_USER_REGEX = /\A[A-Za-z0-9._-][A-Za-z0-9._-]{2,19}\z/
@@ -23,6 +25,8 @@ class User < ActiveRecord::Base
   validate :picture_size
   has_secure_password
   mount_uploader :avatar, AvatarUploader
+
+  after_create :activity_create
 
   def self.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -64,6 +68,11 @@ class User < ActiveRecord::Base
     following.include? other_user
   end
 
+  def activity_user_update user_id, target_id, action_type
+    Activity.create! user_id: user_id, action_type: action_type,
+      target_id: target_id
+  end
+
   private
   def downcase_email
     self.email = email.downcase
@@ -73,5 +82,9 @@ class User < ActiveRecord::Base
     if avatar.size > 2.megabytes
       errors.add :picture, t("upload_avatar_notice")
     end
+  end
+
+  def activity_create
+    create_activity self.id, self.id, Settings.activity_user_create
   end
 end

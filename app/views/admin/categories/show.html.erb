@@ -47,11 +47,11 @@
                         category_id: @category.id}
                       %>
                     <% else %>
-                      <%= button_tag "",method: :PUT,
+                      <%= button_tag "",method: :DELETE,
                         class: "glyphicon glyphicon-minus
                         btn btn-sm btn-warning category_add_word",
-                        category_id: @category.id,
-                        data: {url: admin_word_path(word)} %>
+                        data: {url: admin_word_path(word),
+                        category_id: @category.id} %>
                     <% end %>
                   </span>
                 </td>

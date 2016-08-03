@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="btn-group">
+    <% if activity.user.avatar? %>
+      <%= image_tag activity.user.avatar.url,
+        class: "img-responsive img-avatar-small" %>
+    <% else %>
+      <%= image_tag Settings.avatar_default,
+        class: "img-responsive img-avatar-small" %>
+    <% end %>
+  </div>
+  <span><%= show_user_name activity.user %></span>
+  <span><%= show_action_type activity.action_type %></span>
+  <span>
+    <% object = show_link activity %>
+    <% unless object.nil? %>
+      <%= link_to activity_name(object), object, class: "active " %>
+    <% end %>
+  </span>
+  <span>
+    <span class="glyphicon glyphicon-time"></span>
+    <%= time_ago_in_words activity.created_at %> <%= t ".ago" %>
+  </span>
+</div>
