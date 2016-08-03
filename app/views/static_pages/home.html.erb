@@ -1,5 +1,18 @@
-<div class="center">
-  <h1><%= t "home.msg" %></h1>
-  <%= link_to t("signup_link"), signup_path, class: "btn btn-lg btn-primary" %>
+<% provide :title, t(".title") %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="ed_teacher_div">
+      <h2 class="text-center"><%= t ".activity" %></h2>
+      <div class="row">
+        <% if logged_in? %>
+          <%= render @activities %>
+        <% else %>
+        <div class="center">
+          <h1><%= t "home.msg" %></h1>
+          <%= link_to t("signup_link"), signup_path, class: "btn btn-lg btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-

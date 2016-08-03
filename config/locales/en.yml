@@ -220,3 +220,19 @@ en:
       users: "Users"
       words: "Words"
       format_date: "%m/%d/%Y"
+      my_home: "My Profile"
+  activity:
+    user_create: "Sign up"
+    user_update: "Update"
+    follow: "Follow"
+    unfollow: "unfollow"
+    lesson_create: "create"
+    lesson_do: "do"
+    user_login: "login"
+    user_logout: "logout"
+    you: "You"
+  static_pages:
+    home:
+      title: "Home"
+      activity: "Activities"
+      ago: "ago"

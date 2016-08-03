@@ -6,3 +6,12 @@ per_page: 5
 number_words: 5
 max_answer: 5
 answer_default: 2
+activity_user_create: 0
+activity_user_update: 1
+activity_follow: 2
+activity_unfollow: 3
+activity_lesson_create: 4
+activity_lesson_do: 5
+activity_user_login: 6
+activity_user_logout: 7
+avatar_default: "account.jpg"

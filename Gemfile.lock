@@ -68,6 +68,8 @@ GEM
     erubis (2.7.0)
     excon (0.51.0)
     execjs (2.7.0)
+    faker (1.4.2)
+      i18n (~> 0.5)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.36.0)
@@ -205,6 +207,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    pg (0.18.4)
     pkg-config (1.1.7)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -284,10 +287,12 @@ DEPENDENCIES
   carrierwave (= 0.10.0)
   coffee-rails (~> 4.1.0)
   config
+  faker (= 1.4.2)
   fog (= 1.36.0)
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick (= 3.8.0)
+  pg
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

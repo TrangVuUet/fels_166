@@ -21,7 +21,14 @@ class Word < ActiveRecord::Base
 
   def update_category! category
     if self.results.blank?
-      return self.update_attributes category_id: category.id
+      return self.update_attribute :category_id, category.id
+    end
+    return false
+  end
+
+  def destroy_category!
+    if self.results.blank?
+      return self.update_attribute :category_id, nil
     end
     return false
   end
@@ -33,16 +40,19 @@ class Word < ActiveRecord::Base
   def validate_answer
     size_correct = self.word_answers.select{|answer| answer.is_correct}.size
     if size_correct == 0
-      errors.add "", I18n.t("messages.validate_answer_size_correct")
+      errors.add "answer_is_correct", I18n.t("messages.validate_answer_size_correct")
     end
-    size_correct_content = self.word_answers.select{|answer| answer.content.blank?}.size
-    if size_correct_content == 0
-      errors.add "", I18n.t("messages.validate_answer_blank")
+    size_correct_content = self.word_answers.select{|answer|
+      answer.content.blank?}.size
+    if size_correct_content != 0
+      errors.add "answer_content", I18n.t("messages.validate_answer_blank")
     end
-    size_correct_answer = self.word_answers.size
-    puts size_correct_answer
-    if 1 < size_correct_answer || size_correct_answer > 6
-      errors.add "", I18n.t("messages.validate_answer_size")
+    size_correct_answer = self.word_answers.select{|answer|
+      answer._destroy}.size
+    size_correct_answer = self.word_answers.size - size_correct_answer
+    if Settings.answer_default > size_correct_answer ||
+      size_correct_answer >= Settings.max_answer
+      errors.add "answer_size", I18n.t("messages.validate_answer_size")
     end
   end
 end
