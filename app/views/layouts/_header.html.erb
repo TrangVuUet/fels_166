@@ -19,11 +19,9 @@
               <li>
                 <%= link_to t("user.lesson.title"), categories_path %>
               </li>
-              <% if logged_in? %>
-                <li>
-                  <%= link_to t("user.settings"), edit_user_path(current_user) %>
-                </li>
-              <% end %>
+              <li>
+                <%= link_to t("user.word.content"), words_path %>
+              </li>
             </ul>
           </div>
         </div>

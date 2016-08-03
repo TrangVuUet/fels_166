@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20160723102029) do
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "results", force: :cascade do |t|
-    t.boolean  "is_correct"
     t.integer  "word_answer_id"
     t.integer  "word_id"
     t.integer  "lesson_id"

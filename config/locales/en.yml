@@ -81,11 +81,13 @@ en:
       search_word: "Search words"
       not_found: "No word found."
       answer_word: "Word answers"
+      filter_btn: "Filter"
     word_answer:
       not_found: "No word answer found."
     category:
       name: "Choose category"
       create_exam: "Create Lession"
+      all: "All categories"
     lesson:
       title: "Lessons"
       success_msg: "Create lesson success"
@@ -113,6 +115,7 @@ en:
       stt_finish: "Finish"
       stt_continue: "Continue"
       save_success_msg: "Save the lesson successfully"
+      your_score: "Your score"
   edit_user:
     title: "Edit user"
     save_btn: "Save change"

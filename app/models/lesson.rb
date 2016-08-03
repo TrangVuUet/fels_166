@@ -2,7 +2,7 @@ class Lesson < ActiveRecord::Base
   include CreateActivity
 
   scope :correct, -> {where is_correct=true}
-  scope :user_own, -> (user) {where user_id: user.id}
+  scope :user_own, -> user {where user_id: user.id}
   before_create :create_questions
   belongs_to :user
   belongs_to :category
@@ -26,11 +26,11 @@ class Lesson < ActiveRecord::Base
     end
   end
 
-  def number_correct
-    if self.is_complete?
-      Result.correct.in_lesson(self).count
-    end
+  def score
+    "#{self.results.select{|result| result if result.is_correct}.count}/
+      #{self.results.count}"
   end
+
   private
   def activity_create
     create_activity self.user_id, self.id, Settings.activity_lesson_create

@@ -1,13 +1,19 @@
 class Word < ActiveRecord::Base
-  scope:search, ->(keyword, category_id) {
-    where("content LIKE ? OR category_id = ?", "%#{keyword}%", "#{category_id}")
-  }
-  scope:search_category, ->(category_id = 0) {
+
+  scope :in_category, -> category_id  do
     where("category_id is null OR category_id = ?", "#{category_id}")
-  }
-  scope:filter_category, ->(category_id = 0){
+  end
+
+  scope :in_word_ids, -> words_id do
+    where("id: ?","#{words_id}")
+  end
+
+  scope :search_category, ->(category_id = 0) do
+    where("category_id is null OR category_id = ?", "#{category_id}")
+  end
+  scope :filter_category, ->(category_id = 0) do
     where("category_id = ?", "#{category_id}")
-  }
+  end
 
   belongs_to :category
   has_many :results

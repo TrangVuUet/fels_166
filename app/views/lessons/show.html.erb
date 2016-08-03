@@ -3,7 +3,8 @@
   <%= @lesson.created_at %>
   <br>
   <span>
-    <%= @lesson.number_correct.to_s + "/" + @lesson.results.count.to_s %>
+    <h4><%= t "user.lesson.your_score " %></h4>
+    <%= @lesson.score %>
   </span>
 </div>
 <h1><%= t "user.lesson.question_title"%></h1>

@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   validate :picture_size
   has_secure_password
   mount_uploader :avatar, AvatarUploader
+  accepts_nested_attributes_for :lessons
 
   after_create :activity_create
 

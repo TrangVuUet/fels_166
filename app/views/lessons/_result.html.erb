@@ -9,7 +9,7 @@
   <% end %>
   <% if f.object.lesson.is_complete? %>
     <div>
-      <% if f.object.is_correct_answer? %>
+      <% if f.object.is_correct %>
         <font color="green">
           <%= t "user.lesson.correct_answer" %>
         </font>

@@ -1,13 +1,19 @@
 <% provide :title, t("user.word.title") %>
 <h2><%= t "user.word.title" %></h2>
-<div class="search_form">
+<div>
   <%= form_tag words_path, method: :get do %>
-    <span><%= t "user.category.name" %></span>
-    <span><%= select(nil, "category_id",
-      Category.all.collect {|p| [p.name, p.id]}, {include_blank: true}) %>
-      <%= text_field_tag :word, params[:word],
-        placeholder: t("user.word.search_word")  %>
-      <%= submit_tag t("search_btn"), id: "searchbtn" %>
+  <% filter_status = params[:filter] || Settings.filter_options.last %>
+    <% Settings.filter_options.each do |option| %>
+      <span>
+        <%= radio_button_tag :filter, option, filter_status == option %>
+        <%= t "#{option}" %>
+      </span>
+    <% end %>
+    <span class="search_form">
+      <%= select_tag :category_id, options_for_select(
+        @categories.collect {|category| [category.name, category.id]},
+        params[:category_id]) %>
+      <%= submit_tag t("user.word.filter_btn"), id: "searchbtn" %>
     </span>
   <% end %>
 </div>
@@ -39,4 +45,3 @@
     </tbody>
   </table>
 </div>
-<%= will_paginate %>
